@@ -1,8 +1,19 @@
 body {
   text-align:center;
-  padding: 30 px;
+  background-color: #141414;
 }
+
 h1 {
-  color: #7037cc;
+  color: #b688ff;
   font-family: Verdana, sans-serif;
+  font-size: 96px;
+}
+
+a {
+  color: #b688ff;
+  font-family: Verdana, sans-serif;
+  font-size: 36px;
+}
+div {
+  padding-bottom: 3%;
 }
