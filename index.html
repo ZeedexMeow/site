@@ -5,11 +5,10 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!--meta-->
     <meta name="title" content="zeedex">
     <meta name="description" content="shark">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--open graph-->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://zeedex.eu/">
     <meta property="og:title" content="zeedex">
@@ -41,7 +40,7 @@
         <a id="ikea-link" href="https://www.ikea.com/hr/hr/p/blahaj-plisana-igracka-morski-pas-30373588/">buy now</a>
     </div>
 
-      <script>
+    <script>
         document.addEventListener("DOMContentLoaded", () => {
           const langBtn = document.getElementById('lang');
           const popup = document.getElementById('lang-popup');
@@ -52,9 +51,9 @@
 
           popup.querySelectorAll('li').forEach(item => {
             item.addEventListener('click', () => {
-              const selectedLang = item.getAttribute('data-lang');
-              document.body.setAttribute('lang', selectedLang);
-              popup.style.display = "none";
+            const selectedLang = item.getAttribute('data-lang');
+            document.body.setAttribute('lang', selectedLang);
+            popup.style.display = "none";
             });
           });
 
@@ -66,7 +65,6 @@
         });
       </script>
 
-      <!--localization-->
       <script>
         const translations = {
           de: { buy: "jetzt kaufen" },
@@ -108,8 +106,6 @@
         });
       });
 
-
-        // Init from saved or IP
         const savedLang = localStorage.getItem("lang");
         if (savedLang) {
           setLang(savedLang);
