@@ -54,7 +54,19 @@ img {
   border-radius: 5px;
   padding: 10px;
   z-index: 1001;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
 }
+
+#lang-popup.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
 
 #lang-popup ul {
   list-style: none;
