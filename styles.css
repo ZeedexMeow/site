@@ -14,6 +14,46 @@ a {
   font-family: Verdana, sans-serif;
   font-size: 36px;
 }
-div {
-  padding-bottom: 3%;
+
+#lang {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+#lang i {
+  color: #b688ff;
+}
+
+#lang-popup {
+  position: absolute;
+  font-family: Verdana, sans-serif;
+  top: 3.5rem;
+  right: 1rem;
+  background-color: #120f16;
+  color: #b688ff;
+  border: 1px solid #281c3b;
+  border-radius: 5px;
+  padding: 10px;
+  z-index: 1001;
+}
+#lang-popup ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+}
+#lang-popup li {
+  padding: 5px 10px;
+  cursor: pointer;
+
+}
+#lang-popup li:hover {
+  background-color: #281c3b;;
 }
