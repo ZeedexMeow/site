@@ -80,11 +80,11 @@ img {
 @media (max-width: 768px) {
   body {
     padding: 10px;
-    font-size: 14px;
+    font-size: 28px;
   }
 
   h1 {
-    font-size: 48px;
+    font-size: 64px;
   }
 
   #lang-popup {
@@ -98,7 +98,7 @@ img {
   }
 
   #ikea-link {
-    font-size: 24px;
+    font-size: 28px;
   }
 
   img {
