@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <head>
     <title>zeedex</title>
     <link rel="icon" type="image/x-icon" href="favicon.png">
@@ -15,12 +16,15 @@
     <meta property="og:description" content="shark">
     <meta property="og:image" content="https://zeedex.eu/blahajcat.jpg">
 </head>
+
 <body lang="en">
+
     <div>
         <button id="lang">
           <i class="fas fa-globe"></i>
         </button>
-        <div id="lang-popup" style="display: none;">
+
+        <div id="lang-popup">
           <ul>
             <li data-lang="de">Deutsch</li>
             <li data-lang="en">English</li>
@@ -32,38 +36,41 @@
             <li data-lang="pl">Polski</li>
             <li data-lang="se">Svenska</li>
           </ul>
-        </div>        
+        </div>
+
         <h1>blåhaj</h1>
+
         <img src="blahaj.png">
     </div>
+    
     <div style="padding-top: 2%;">
         <a id="ikea-link" href="https://www.ikea.com/hr/hr/p/blahaj-plisana-igracka-morski-pas-30373588/">buy now</a>
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-          const langBtn = document.getElementById('lang');
-          const popup = document.getElementById('lang-popup');
+      document.addEventListener("DOMContentLoaded", () => {
+        const langBtn = document.getElementById('lang');
+        const popup = document.getElementById('lang-popup');
 
-          langBtn.addEventListener('click', () => {
-            popup.style.display = popup.style.display === "none" ? "block" : "none";
-          });
+      langBtn.addEventListener('click', () => {
+        popup.classList.toggle("show");
+      });
 
-          popup.querySelectorAll('li').forEach(item => {
-            item.addEventListener('click', () => {
-            const selectedLang = item.getAttribute('data-lang');
-            document.body.setAttribute('lang', selectedLang);
-            popup.style.display = "none";
-            });
-          });
-
-          document.addEventListener('click', e => {
-            if (!langBtn.contains(e.target) && !popup.contains(e.target)) {
-              popup.style.display = "none";
-            }
-          });
+      popup.querySelectorAll('li').forEach(item => {
+        item.addEventListener('click', () => {
+          const selectedLang = item.getAttribute('data-lang');
+          document.body.setAttribute('lang', selectedLang);
+          popup.style.display = "none";
         });
-      </script>
+      });
+
+      document.addEventListener('click', e => {
+        if (!langBtn.contains(e.target) && !popup.contains(e.target)) {
+          popup.classList.remove("show");
+        }
+      });
+    });
+    </script>
 
       <script>
         const translations = {
