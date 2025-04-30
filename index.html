@@ -10,7 +10,40 @@
         <img src="blahaj.png">
     </div>
     <div>
-        <a href="https://www.ikea.com/hr/hr/p/blahaj-plisana-igracka-morski-pas-30373588/">buy now</a>
+        <a id="ikea-link" href="https://www.ikea.com/hr/hr/p/blahaj-plisana-igracka-morski-pas-30373588/">buy now</a>
     </div>
+
+    <script>
+        const ikeaLinks = {
+            hr: "https://www.ikea.com/hr/hr/p/blahaj-plisana-igracka-morski-pas-30373588/",
+            de: "https://www.ikea.com/de/de/p/blahaj-stoffspielzeug-hai-30373588/",
+            gb: "https://www.ikea.com/gb/en/p/blahaj-soft-toy-shark-30373588/",
+            it: "https://www.ikea.com/it/it/p/blahaj-peluche-squalo-30373588/",
+            us: "https://www.ikea.com/us/en/p/blahaj-soft-toy-shark-90373590/",
+            nl: "https://www.ikea.com/nl/en/p/blahaj-soft-toy-shark-30373588/",
+            se: "https://www.ikea.com/se/sv/p/blahaj-mjukleksak-haj-30373588/",
+            no: "https://www.ikea.com/no/no/p/blahaj-toyleke-hai-30373588/",
+            pl: "https://www.ikea.com/pl/pl/p/blahaj-pluszak-rekin-30373588/",
+            fr: "https://www.ikea.com/fr/fr/p/blahaj-peluche-requin-30373588/",
+        };
+      
+        fetch("https://ipapi.co/json/")
+          .then(res => res.json())
+          .then(data => {
+            const countryCode = data.country.toLowerCase();
+            const link = ikeaLinks[countryCode] || ikeaLinks["de"];
+            const linkElement = document.getElementById("ikea-link");
+            if (linkElement) {
+              linkElement.href = link;
+            }
+          })
+          .catch(() => {
+            const linkElement = document.getElementById("ikea-link");
+            if (linkElement) {
+              linkElement.href = ikeaLinks["de"];
+            }
+          });
+      </script>      
+
 </body>
 </html>
