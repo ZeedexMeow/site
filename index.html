@@ -72,69 +72,70 @@
     });
     </script>
 
-      <script>
-        const translations = {
-          de: { buy: "jetzt kaufen" },
-          en: { buy: "buy now" },
-          fr: { buy: "acheter maintenant" },
-          hr: { buy: "kupi sada" },
-          it: { buy: "acquista ora" },
-          nl: { buy: "nu kopen" },
-          no: { buy: "kjøp nå" },
-          pl: { buy: "kup teraz" },
-          se: { buy: "köp nu" },
-        };
+    <script>
+      const translations = {
+        de: { buy: "jetzt kaufen" },
+        en: { buy: "buy now" },
+        fr: { buy: "acheter maintenant" },
+        hr: { buy: "kupi sada" },
+        it: { buy: "acquista ora" },
+        nl: { buy: "nu kopen" },
+        no: { buy: "kjøp nå" },
+        pl: { buy: "kup teraz" },
+        se: { buy: "köp nu" },
+      };
 
-        const ikeaLinks = {
-          hr: "https://www.ikea.com/hr/hr/p/blahaj-plisana-igracka-morski-pas-30373588/",
-          de: "https://www.ikea.com/de/de/p/blahaj-stoffspielzeug-hai-30373588/",
-          gb: "https://www.ikea.com/gb/en/p/blahaj-soft-toy-shark-30373588/",
-          it: "https://www.ikea.com/it/it/p/blahaj-peluche-squalo-30373588/",
-          us: "https://www.ikea.com/us/en/p/blahaj-soft-toy-shark-90373590/",
-          nl: "https://www.ikea.com/nl/en/p/blahaj-soft-toy-shark-30373588/",
-          se: "https://www.ikea.com/se/sv/p/blahaj-mjukleksak-haj-30373588/",
-          no: "https://www.ikea.com/no/no/p/blahaj-toyleke-hai-30373588/",
-          pl: "https://www.ikea.com/pl/pl/p/blahaj-pluszak-rekin-30373588/",
-          fr: "https://www.ikea.com/fr/fr/p/blahaj-peluche-requin-30373588/",
-        };
+      const ikeaLinks = {
+        hr: "https://www.ikea.com/hr/hr/p/blahaj-plisana-igracka-morski-pas-30373588/",
+        de: "https://www.ikea.com/de/de/p/blahaj-stoffspielzeug-hai-30373588/",
+        gb: "https://www.ikea.com/gb/en/p/blahaj-soft-toy-shark-30373588/",
+        it: "https://www.ikea.com/it/it/p/blahaj-peluche-squalo-30373588/",
+        us: "https://www.ikea.com/us/en/p/blahaj-soft-toy-shark-90373590/",
+        nl: "https://www.ikea.com/nl/en/p/blahaj-soft-toy-shark-30373588/",
+        se: "https://www.ikea.com/se/sv/p/blahaj-mjukleksak-haj-30373588/",
+        no: "https://www.ikea.com/no/no/p/blahaj-toyleke-hai-30373588/",
+        pl: "https://www.ikea.com/pl/pl/p/blahaj-pluszak-rekin-30373588/",
+        fr: "https://www.ikea.com/fr/fr/p/blahaj-peluche-requin-30373588/",
+      };
 
-        function setLang(lang) {
-          document.body.setAttribute("lang", lang);
-          localStorage.setItem("lang", lang);
-          const t = translations[lang] || translations["en"];
-          document.getElementById("ikea-link").innerText = t.buy;
-        }
+      function setLang(lang) {
+        document.body.setAttribute("lang", lang);
+        localStorage.setItem("lang", lang);
+        const t = translations[lang] || translations["en"];
+        document.getElementById("ikea-link").innerText = t.buy;
+      }
 
-        document.querySelectorAll("#lang-popup li").forEach(item => {
+      document.querySelectorAll("#lang-popup li").forEach(item => {
         item.addEventListener("click", () => {
           const lang = item.dataset.lang;
           setLang(lang);
-          document.getElementById("lang-popup").style.display = "none";
+          popup.classList.remove("show");
         });
       });
 
-        const savedLang = localStorage.getItem("lang");
-        if (savedLang) {
-          setLang(savedLang);
-        } else {
-          fetch("https://ipapi.co/json/")
-            .then(res => res.json())
-            .then(data => {
-              const countryCode = data.country.toLowerCase();
-              const langMap = {
-                hr: "hr", de: "de", gb: "en", us: "en", it: "it", nl: "nl",
-                se: "se", no: "no", pl: "pl", fr: "fr"
-              };
-              const lang = langMap[countryCode] || "de";
-              setLang(lang);
-              const link = ikeaLinks[countryCode] || ikeaLinks["de"];
-              document.getElementById("ikea-link").href = link;
-            })
-            .catch(() => {
-              setLang("de");
-              document.getElementById("ikea-link").href = ikeaLinks["de"];
-            });
-        }
-      </script>
+    const savedLang = localStorage.getItem("lang");
+      if (savedLang) {
+        setLang(savedLang);
+      } else {
+        fetch("https://ipapi.co/json/")
+        .then(res => res.json())
+        .then(data => {
+          const countryCode = data.country.toLowerCase();
+          const langMap = {
+              hr: "hr", de: "de", gb: "en", us: "en", it: "it", nl: "nl",
+              se: "se", no: "no", pl: "pl", fr: "fr"
+            };
+          const lang = langMap[countryCode] || "de";
+          setLang(lang);
+          const link = ikeaLinks[countryCode] || ikeaLinks["de"];
+          document.getElementById("ikea-link").href = link;
+        })
+
+        .catch(() => {
+          setLang("de");
+          document.getElementById("ikea-link").href = ikeaLinks["de"];
+        });
+      }
+    </script>
 </body>
 </html>
