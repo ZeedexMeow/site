@@ -26,15 +26,15 @@
 
         <div id="lang-popup">
           <ul>
-            <li data-lang="de">Deutsch</li>
-            <li data-lang="en">English</li>
-            <li data-lang="fr">Français</li>
-            <li data-lang="hr">Hrvatski</li>
-            <li data-lang="it">Italiano</li>
-            <li data-lang="nl">Nederlands</li>
-            <li data-lang="no">Norsk</li>
-            <li data-lang="pl">Polski</li>
-            <li data-lang="se">Svenska</li>
+            <li data-lang="de"><span class="flag">🇩🇪</span><span class="lang-name">Deutsch</span></li>
+            <li data-lang="en"><span class="flag">🇬🇧</span><span class="lang-name">English</span></li>
+            <li data-lang="fr"><span class="flag">🇫🇷</span><span class="lang-name">Français</span></li>
+            <li data-lang="hr"><span class="flag">🇭🇷</span><span class="lang-name">Hrvatski</span></li>
+            <li data-lang="it"><span class="flag">🇮🇹</span><span class="lang-name">Italiano</span></li>
+            <li data-lang="nl"><span class="flag">🇳🇱</span><span class="lang-name">Nederlands</span></li>
+            <li data-lang="no"><span class="flag">🇳🇴</span><span class="lang-name">Norsk</span></li>
+            <li data-lang="pl"><span class="flag">🇵🇱</span><span class="lang-name">Polski</span></li>
+            <li data-lang="se"><span class="flag">🇸🇪</span><span class="lang-name">Svenska</span></li>
           </ul>
         </div>
 
@@ -52,81 +52,92 @@
         const langBtn = document.getElementById('lang');
         const popup = document.getElementById('lang-popup');
         const ikeaLink = document.getElementById('ikea-link');
-    
+        
         const translations = {
-          de: { buy: "jetzt kaufen" },
-          en: { buy: "buy now" },
-          fr: { buy: "acheter maintenant" },
-          hr: { buy: "kupi sada" },
-          it: { buy: "acquista ora" },
-          nl: { buy: "nu kopen" },
-          no: { buy: "kjøp nå" },
-          pl: { buy: "kup teraz" },
-          se: { buy: "köp nu" },
+            de: { buy: "jetzt kaufen" },
+            en: { buy: "buy now" },
+            fr: { buy: "acheter maintenant" },
+            hr: { buy: "kupi sada" },
+            it: { buy: "acquista ora" },
+            nl: { buy: "nu kopen" },
+            no: { buy: "kjøp nå" },
+            pl: { buy: "kup teraz" },
+            se: { buy: "köp nu" },
         };
-    
+
         const ikeaLinks = {
-          hr: "https://www.ikea.com/hr/hr/p/blahaj-plisana-igracka-morski-pas-30373588/",
-          de: "https://www.ikea.com/de/de/p/blahaj-stoffspielzeug-hai-30373588/",
-          gb: "https://www.ikea.com/gb/en/p/blahaj-soft-toy-shark-30373588/",
-          it: "https://www.ikea.com/it/it/p/blahaj-peluche-squalo-30373588/",
-          us: "https://www.ikea.com/us/en/p/blahaj-soft-toy-shark-90373590/",
-          nl: "https://www.ikea.com/nl/en/p/blahaj-soft-toy-shark-30373588/",
-          se: "https://www.ikea.com/se/sv/p/blahaj-mjukleksak-haj-30373588/",
-          no: "https://www.ikea.com/no/no/p/blahaj-toyleke-hai-30373588/",
-          pl: "https://www.ikea.com/pl/pl/p/blahaj-pluszak-rekin-30373588/",
-          fr: "https://www.ikea.com/fr/fr/p/blahaj-peluche-requin-30373588/",
+            hr: "https://www.ikea.com/hr/hr/p/blahaj-plisana-igracka-morski-pas-30373588/",
+            de: "https://www.ikea.com/de/de/p/blahaj-stoffspielzeug-hai-30373588/",
+            gb: "https://www.ikea.com/gb/en/p/blahaj-soft-toy-shark-30373588/",
+            us: "https://www.ikea.com/us/en/p/blahaj-soft-toy-shark-90373590/",
+            en: "https://www.ikea.com/gb/en/p/blahaj-soft-toy-shark-30373588/",
+            it: "https://www.ikea.com/it/it/p/blahaj-peluche-squalo-30373588/",
+            nl: "https://www.ikea.com/nl/nl/p/blahaj-soft-toy-shark-30373588/",
+            se: "https://www.ikea.com/se/sv/p/blahaj-mjukleksak-haj-30373588/",
+            no: "https://www.ikea.com/no/no/p/blahaj-toyleke-hai-30373588/",
+            pl: "https://www.ikea.com/pl/pl/p/blahaj-pluszak-rekin-30373588/",
+            fr: "https://www.ikea.com/fr/fr/p/blahaj-peluche-requin-30373588/",
         };
-    
+
         function setLang(lang) {
-          document.body.setAttribute("lang", lang);
-          localStorage.setItem("lang", lang);
-          const t = translations[lang] || translations["en"];
-          ikeaLink.innerText = t.buy;
-    
-          const countryCode = lang;
-          const link = ikeaLinks[countryCode] || ikeaLinks["de"];
-          ikeaLink.href = link;
-        }
-    
-        langBtn.addEventListener('click', () => {
-          popup.classList.toggle("show");
-        });
-    
-        document.addEventListener('click', e => {
-          if (!langBtn.contains(e.target) && !popup.contains(e.target)) {
-            popup.classList.remove("show");
-          }
-        });
-    
-        popup.querySelectorAll('li').forEach(item => {
-          item.addEventListener('click', () => {
-            const selectedLang = item.getAttribute('data-lang');
-            setLang(selectedLang);
-            popup.classList.remove("show");
-          });
-        });
-    
-        const savedLang = localStorage.getItem("lang");
-        if (savedLang) {
-          setLang(savedLang);
-        } else {
-          fetch("https://ipapi.co/json/")
-            .then(res => res.json())
-            .then(data => {
-              const countryCode = data.country.toLowerCase();
-              const langMap = {
-                hr: "hr", de: "de", gb: "en", us: "en", it: "it", nl: "nl",
-                se: "se", no: "no", pl: "pl", fr: "fr"
-              };
-              const lang = langMap[countryCode] || "de";
-              setLang(lang);
-            })
-            .catch(() => {
-              setLang("de");
+            document.body.setAttribute("lang", lang);
+            localStorage.setItem("lang", lang);
+            const t = translations[lang] || translations["en"];
+            ikeaLink.innerText = t.buy;
+
+            const countryCode = lang.toLowerCase();
+            const fullLocale = navigator.language.toLowerCase();
+            const link = ikeaLinks[fullLocale] || ikeaLinks[countryCode] || ikeaLinks["en"];
+            ikeaLink.href = link;
+
+            // Highlight the selected language
+            const langItems = popup.querySelectorAll('li');
+            langItems.forEach(item => {
+                item.classList.remove('selected');
+                if (item.getAttribute('data-lang') === lang) {
+                    item.classList.add('selected');
+                }
             });
         }
-      });
-    </script>
+
+        langBtn.addEventListener('click', () => {
+            popup.classList.toggle("show");
+        });
+
+        document.addEventListener('click', e => {
+            if (!langBtn.contains(e.target) && !popup.contains(e.target)) {
+                popup.classList.remove("show");
+            }
+        });
+
+        popup.querySelectorAll('li').forEach(item => {
+            item.addEventListener('click', () => {
+                const selectedLang = item.getAttribute('data-lang');
+                setLang(selectedLang);
+                popup.classList.remove("show");
+            });
+        });
+
+        const savedLang = localStorage.getItem("lang");
+        if (savedLang) {
+            setLang(savedLang);
+        } else {
+            fetch("https://ipapi.co/json/")
+                .then(res => res.json())
+                .then(data => {
+                    const countryCode = data.country.toLowerCase();
+                    const langMap = {
+                        hr: "hr", de: "de", gb: "en", us: "en", it: "it", nl: "nl",
+                        se: "se", no: "no", pl: "pl", fr: "fr"
+                    };
+                    const lang = langMap[countryCode] || "de";
+                    setLang(lang);
+                })
+                .catch(() => {
+                    setLang("de");
+                });
+        }
+    });
+    </script>    
 </body>
 </html>
