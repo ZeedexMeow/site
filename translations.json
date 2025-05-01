@@ -8,5 +8,18 @@
     "pl": { "buy": "kup teraz" },
     "se": { "buy": "köp nu" },
     "gb": { "buy": "pray, make haste to acquire thine own" },
-    "us": { "buy": "buy now" }
+    "us": { "buy": "buy now" },
+    "es": { "buy": "comprar ahora" },
+    "pt": { "buy": "comprar agora" },
+    "ca": { "buy": "buy now, please" },
+    "dk": { "buy": "køb nu" },
+    "si": { "buy": "kupi zdaj" },
+    "at": { "buy": "jetzt kaufen" },
+    "ie": { "buy": "get yer hands on it, before it's off like a whiff o' the morning breeze!" },
+    "be": { "buy": "buy now" },
+    "cz": { "buy": "koupit hned" },
+    "fi": { "buy": "osta nyt" },
+    "ee": { "buy": "osta kohe" },
+    "lv": { "buy": "nopirkt tagad" },
+    "lt": { "buy": "pirkite dabar" }
 }
