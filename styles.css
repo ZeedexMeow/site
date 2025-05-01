@@ -86,6 +86,7 @@ img {
 #lang-popup .flag {
   width: 24px;
   text-align: center;
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", Verdana, sans-serif;
 }
 
 #lang-popup li:hover {
