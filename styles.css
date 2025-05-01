@@ -109,6 +109,10 @@ img {
     padding: 5px;
   }
 
+  #lang-popup li {
+    padding: 10px;
+  }
+
   #ikea-link {
     font-size: 32px;
   }
