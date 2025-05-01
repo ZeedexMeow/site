@@ -75,12 +75,27 @@ img {
 }
 
 #lang-popup li {
-  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
   cursor: pointer;
+  font-size: 16px;
+}
+
+#lang-popup .flag {
+  width: 24px;
+  text-align: center;
 }
 
 #lang-popup li:hover {
   background-color: #281c3b;;
+}
+
+#lang-popup li.selected {
+  background-color: #261246;
+  font-weight: bold;
+  color: #b688ff;
 }
 
 #ikea-link {
@@ -110,7 +125,9 @@ img {
   }
 
   #lang-popup li {
-    padding: 10px;
+    display: flex;
+    align-items: center;
+    padding: 15px;
   }
 
   #ikea-link {
