@@ -26,13 +26,26 @@
 
         <div id="lang-popup">
           <ul>
+            <li data-lang="be"><span class="flag">🇧🇪</span><span class="lang-name">Belgium (en)</span></li>
+            <li data-lang="ca"><span class="flag">🇨🇦</span><span class="lang-name">Canada</span></li>
+            <li data-lang="cz"><span class="flag">🇨🇿</span><span class="lang-name">Česko</span></li>
+            <li data-lang="dk"><span class="flag">🇩🇰</span><span class="lang-name">Danmark</span></li>
             <li data-lang="de"><span class="flag">🇩🇪</span><span class="lang-name">Deutschland</span></li>
+            <li data-lang="es"><span class="flag">🇪🇸</span><span class="lang-name">España</span></li>
+            <li data-lang="ee"><span class="flag">🇪🇪</span><span class="lang-name">Eesti</span></li>
             <li data-lang="fr"><span class="flag">🇫🇷</span><span class="lang-name">France</span></li>
             <li data-lang="hr"><span class="flag">🇭🇷</span><span class="lang-name">Hrvatska</span></li>
+            <li data-lang="ie"><span class="flag">🇮🇪</span><span class="lang-name">Ireland</span></li>
             <li data-lang="it"><span class="flag">🇮🇹</span><span class="lang-name">Italia</span></li>
+            <li data-lang="lv"><span class="flag">🇱🇻</span><span class="lang-name">Latvija</span></li>
+            <li data-lang="lt"><span class="flag">🇱🇹</span><span class="lang-name">Lietuva</span></li>
             <li data-lang="nl"><span class="flag">🇳🇱</span><span class="lang-name">Nederland</span></li>
             <li data-lang="no"><span class="flag">🇳🇴</span><span class="lang-name">Norge</span></li>
+            <li data-lang="at"><span class="flag">🇦🇹</span><span class="lang-name">Österreich</span></li>
             <li data-lang="pl"><span class="flag">🇵🇱</span><span class="lang-name">Polska</span></li>
+            <li data-lang="pt"><span class="flag">🇵🇹</span><span class="lang-name">Portugal</span></li>
+            <li data-lang="si"><span class="flag">🇸🇮</span><span class="lang-name">Slovenija</span></li>
+            <li data-lang="fi"><span class="flag">🇫🇮</span><span class="lang-name">Suomi</span></li>
             <li data-lang="se"><span class="flag">🇸🇪</span><span class="lang-name">Sverige</span></li>
             <li data-lang="gb"><span class="flag">🇬🇧</span><span class="lang-name">United Kingdom</span></li>
             <li data-lang="us"><span class="flag">🇺🇸</span><span class="lang-name">United States</span></li>
@@ -68,6 +81,19 @@
                 no: "https://www.ikea.com/no/no/p/blahaj-toyleke-hai-30373588/",
                 pl: "https://www.ikea.com/pl/pl/p/blahaj-pluszak-rekin-30373588/",
                 fr: "https://www.ikea.com/fr/fr/p/blahaj-peluche-requin-30373588/",
+                es: "https://www.ikea.com/es/es/p/blahaj-peluche-tiburon-30373588/",
+                pt: "https://www.ikea.com/pt/pt/p/blahaj-peluche-tubarao-30373588/",
+                ca: "https://www.ikea.com/ca/en/p/blahaj-soft-toy-shark-90373590/",
+                dk: "https://www.ikea.com/dk/da/p/blahaj-tojdyr-haj-30373588/",
+                si: "https://www.ikea.com/si/sl/p/blahaj-plisasta-igraca-morski-pes-30373588/",
+                at: "https://www.ikea.com/at/de/p/blahaj-stoffspielzeug-hai-30373588/",
+                ie: "https://www.ikea.com/ie/en/p/blahaj-soft-toy-shark-30373588/",
+                be: "https://www.ikea.com/be/en/p/blahaj-soft-toy-shark-30373588/",
+                cz: "https://www.ikea.com/cz/cs/p/blahaj-plysova-hracka-zralok-30373588/",
+                fi: "https://www.ikea.com/fi/fi/p/blahaj-pehmolelu-hai-30373588/",
+                ee: "https://www.ikea.ee/et/products/laste-ikea/manguasjad-ja-loovus/lohutavad-manguasjad/blahaj-pehme-manguasi-art-30373588",
+                lv: "https://www.ikea.lv/lv/products/ikea-berniem/esana/milmantinas/blahaj-miksta-rotallieta-art-30373588",
+                lt: "https://www.ikea.lt/lt/products/vaiku-ikea/zaislai-ir-kurybines-prekes/zaislai-miegui-ir-nusiraminimui/blahaj-minkstasis-zaislas-art-30373588",
             };
 
             function setLang(lang) {
@@ -118,7 +144,10 @@
                         const countryCode = data.country.toLowerCase();
                         const langMap = {
                             hr: "hr", de: "de", gb: "gb", us: "us", it: "it", nl: "nl",
-                            se: "se", no: "no", pl: "pl", fr: "fr"
+                            se: "se", no: "no", pl: "pl", fr: "fr", es: "es", pt: "pt",
+                            ca: "ca", dk: "dk", si: "si", at: "at", ie: "ie", be: "be",
+                            cz: "cz", fi: "fi", ee: "ee", lv: "lv", lt: "lt"
+
                         };
                         const lang = langMap[countryCode] || "de";
                         setLang(lang);
